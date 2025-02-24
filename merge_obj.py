@@ -61,15 +61,9 @@ def merge_obj_files_in_memory(input_directory, output_file="merged_output.obj"):
                         # e.g. "f v/vt/vn v/vt/vn v/vt/vn ..."
                         faces.append(line)
                     else:
-                        # e.g. "s off", "usemtl", "mtllib", etc.
-                        # We can either append them or skip them.
-                        # We'll just append them except for group/object lines:
-                        #   out_f.write(line + "\n")
-                        # But let's store them in a separate list if you want.
                         pass
 
             # -- Write new object & group statements --
-            # Doing both "o" and "g" helps in some software that expects either.
             out_f.write(f"o {obj_name}\n")
             out_f.write(f"g {obj_name}\n")
 
